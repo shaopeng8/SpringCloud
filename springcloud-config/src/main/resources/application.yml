@@ -1,0 +1,31 @@
+server:
+  port: 8084
+  
+spring:
+  application:
+    name: springCloud-config
+  rabbitmq:
+    host: 192.168.0.185
+    port: 5672
+    virtual-host: cloud
+    username: spatome
+    password: spatome
+    listener:
+      simple:
+        concurrency: 10
+        max-concurrency: 10
+        prefetch: 5
+    
+eureka:
+  instance:
+    prefer-ip-address: true #访问的路径变为 IP 地址
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #使得服务实例在eureka界面增加显示版本号
+    lease-renewal-interval-in-seconds: 5  #心跳
+    lease-expiration-duration-in-seconds: 15
+  client:
+    service-url:
+      defaultZone: http://root:123456@192.168.0.108:8091/eureka/
+      
+constants:
+  author: shenshaopeng
+  desc: 这是一个参数配置服务器

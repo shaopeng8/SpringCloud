@@ -1,0 +1,26 @@
+server:
+  port: 8081
+  
+spring:
+  application:
+    name: springCloud-web
+
+eureka:
+  instance:
+    prefer-ip-address: true #访问的路径变为 IP 地址
+    instance-id: ${spring.cloud.client.ip-address}:${server.port} #使得服务实例在eureka界面增加显示版本号
+    lease-renewal-interval-in-seconds: 5  #心跳
+    lease-expiration-duration-in-seconds: 15
+  client:
+    register-with-eureka: true # 是否作为一个Eureka Client 注册到Eureka Server上去
+    fetch-registry: true # 是否需要从Eureka Server上拉取注册信息到本地(决定Eureka服务端集群是否自动同步)。
+    service-url:
+      defaultZone: http://root:123456@192.168.0.108:8091/eureka/
+
+ribbon:
+  ConnectTimeout: 2000 # 设置连接超时时间
+  ReadTimeout: 5000 # 设置读取超时时间
+  ServerListRefreshInterval: 2000 # 调整刷新server list的时间间隔
+  MaxAutoRetries: 1 # 对当前实例的重试次数
+  MaxAutoRetriesNextServer: 2 # 切换实例的重试次数
+  
