@@ -1,15 +1,19 @@
 package com.springcloud.web.controller;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import lombok.extern.slf4j.Slf4j;
+import com.springcloud.web.client.APIClient;
 
+import lombok.extern.slf4j.Slf4j;
+ 
 /**
  * 
  * <pre>
@@ -23,19 +27,22 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ShenshaopengDemo {
 
+	@Resource
+	private APIClient apiClient;
+
 	@Value("${server.port}")
 	String port;
 
-	@RequestMapping(value = "/toDemoPage")
-	public String toDemoPage(HttpServletRequest request) {
-		log.info("端口：" + request.getLocalPort());
-		return "index.html";
+	@GetMapping(value = "/toDemoPage")
+	@ResponseBody
+	public String toDemoPage(@RequestParam(value = "userName") String userName) {
+		return apiClient.toFeignTest(userName).getMessage();
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/toDemoResBody")
-	public String toDemoResBody(@RequestParam(value = "name", defaultValue = "shenshao") String name) {
-		return "您好~" + name + "，您此次访问WEB服务的端口是：" + port;
+	public String toDemoResBody(@RequestParam(value = "userName", defaultValue = "shenshao") String userName) {
+		return "您好~" + userName + "，您此次访问WEB服务的端口是：" + port;
 	}
 
 	@RequestMapping(value = "/abcd.html")

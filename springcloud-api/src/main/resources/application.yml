@@ -1,9 +1,9 @@
 server:
-  port: 8083
+  port: 8086
   
 spring:
   application:
-    name: springCloud-web
+    name: springCloud-api
 
 eureka:
   instance:
@@ -23,4 +23,3 @@ ribbon:
   ServerListRefreshInterval: 2000 # 调整刷新server list的时间间隔
   MaxAutoRetries: 1 # 对当前实例的重试次数
   MaxAutoRetriesNextServer: 2 # 切换实例的重试次数
-  

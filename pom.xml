@@ -13,6 +13,7 @@
 		<module>springcloud-web</module>
 		<module>springcloud-gateway</module>
 		<module>springcloud-config</module>
+		<module>springcloud-api</module>
 	</modules>
 
 	<!-- 父级项目公共配置：spring boot依赖包及版本号 -->
@@ -31,6 +32,25 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-security</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+	</dependencies>
+	
 	<!-- 父级项目，依赖包管理 -->
 	<dependencyManagement>
 		<dependencies>

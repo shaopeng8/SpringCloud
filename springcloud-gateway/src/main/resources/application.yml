@@ -15,13 +15,13 @@ eureka:
     register-with-eureka: true # 是否作为一个Eureka Client 注册到Eureka Server上去
     fetch-registry: true # 是否需要从Eureka Server上拉取注册信息到本地(决定Eureka服务端集群是否自动同步)。
     service-url:
-      defaultZone: http://root:123456@192.168.0.108:8091/eureka/
+      defaultZone: http://root:123456@127.0.0.1:8091/eureka/
       
 zuul:
   routes:
     web: 
-      path: /web/*
-      service-id: springcloud-web
+      path: /web/**
+      service-id: SPRINGCLOUD-WEB
     ratelimit:  #网关限流
       enabled: false  #关闭
       behind-proxy: true
