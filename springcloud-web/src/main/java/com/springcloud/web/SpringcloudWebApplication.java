@@ -9,8 +9,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableFeignClients
 @EnableEurekaClient
-@SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 @EnableConfigurationProperties
+@SpringBootApplication(exclude = { DataSourceAutoConfiguration.class })
 public class SpringcloudWebApplication {
 
 	public static void main(String[] args) {

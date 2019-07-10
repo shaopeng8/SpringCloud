@@ -5,6 +5,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * 
+ * <pre>
+ * API Client Server
+ * </pre>
+ * 
+ * @author shenshao
+ * @version 1.0
+ */
 @FeignClient(name = "SPRINGCLOUD-API", fallback = APIClientFallBack.class)
 public interface APIClient {
 

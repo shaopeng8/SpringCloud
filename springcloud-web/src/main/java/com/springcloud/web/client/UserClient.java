@@ -8,6 +8,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springcloud.web.core.ResultBody;
 
+/**
+ * 
+ * <pre>
+ * User Client Server
+ * </pre>
+ * 
+ * @author shenshao
+ * @version 1.0
+ */
 @FeignClient(name = "user-server")
 public interface UserClient {
 

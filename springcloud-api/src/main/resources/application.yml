@@ -1,6 +1,6 @@
 server:
   port: 8086
-  
+
 spring:
   application:
     name: springCloud-api
@@ -23,7 +23,7 @@ ribbon:
   ServerListRefreshInterval: 2000 # 调整刷新server list的时间间隔
   MaxAutoRetries: 0 # 对当前实例的重试次数
   MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
-  
+
 hystrix:
   command: 
     default: #default全局有效，service id指定应用有效

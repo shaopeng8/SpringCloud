@@ -7,9 +7,7 @@
 	<name>springcloud-api</name>
 	<description>springcloud-api</description>
 
-	<!-- 配置父级项目信息  -->
-	
-	
+	<!--  配置父级项目信息  -->
 	<parent>
 		<groupId>com.springcloud.parent</groupId>
 		<artifactId>springcloud-parent</artifactId>
