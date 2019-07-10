@@ -11,7 +11,7 @@ public class APIClientFallBack implements APIClient {
 	@Override
 	public String toFeignTest(String userName) {
 		log.info("哎妈呀！toFeignTest接口，被人弄死了~");
-		return "哎妈呀，上年纪了~处理不动~";
+		return "哎妈呀，上年纪了~处理不动~"; 
 	}
 
 	@Override
