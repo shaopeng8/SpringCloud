@@ -5,13 +5,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.springcloud.web.core.BaseVO;
-
-@FeignClient(name = "springCloud-api")
+@FeignClient(name = "SPRINGCLOUD-API", fallback = APIClientFallBack.class)
 public interface APIClient {
 
 	@GetMapping(value = "/toFeignTest")
 	@ResponseBody
-	BaseVO<String> toFeignTest(@RequestParam(value = "userName", required = true) String userName);
+	String toFeignTest(@RequestParam(value = "userName") String userName);
+
+	@GetMapping(value = "/toHystrixTest")
+	String toHystrixTest(@RequestParam(value = "userName") String userName);
 
 }

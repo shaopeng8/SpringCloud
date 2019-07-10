@@ -5,15 +5,15 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.springcloud.web.client.APIClient;
 
 import lombok.extern.slf4j.Slf4j;
- 
+
 /**
  * 
  * <pre>
@@ -28,15 +28,15 @@ import lombok.extern.slf4j.Slf4j;
 public class ShenshaopengDemo {
 
 	@Resource
-	private APIClient apiClient;
+	private APIClient api;
 
 	@Value("${server.port}")
 	String port;
 
-	@GetMapping(value = "/toDemoPage")
+	@RequestMapping(value = "/toDemoPage", method = RequestMethod.GET)
 	@ResponseBody
 	public String toDemoPage(@RequestParam(value = "userName") String userName) {
-		return apiClient.toFeignTest(userName).getMessage();
+		return api.toHystrixTest(userName);
 	}
 
 	@ResponseBody
